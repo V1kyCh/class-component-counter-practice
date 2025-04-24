@@ -5,7 +5,8 @@ import { Counter } from './component/Counter';
 class App extends Component {
 
   state = {
-    store: 0
+    store: 0,
+    childMassage: null
   }
 
   increment = () => {
@@ -20,13 +21,17 @@ class App extends Component {
     console.log('decrement')
   }
 
+  getMassage=(massage)=>{
+    this.setState({childMassage: massage})
+
+  }
+
   render() {
-    console.log(this.state.score)
     return (
       <div className="App">
 
         <h3>{this.state.store}</h3>
-        <Counter addScore={this.increment} remScore={this.decrement} test='test'/>
+        <Counter addScore={this.increment} remScore={this.decrement} getMassage={this.getMassage} test='test'/>
       </div>
     );
 
